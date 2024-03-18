@@ -18,6 +18,7 @@ app.engine('hbs', handlebars.engine);
 app.set('view engine', 'hbs');
 
 const publicPath = path.join(__dirname, 'views', 'public');
+
 app.use(express.static(publicPath));
 
 
@@ -40,6 +41,7 @@ app.get('/add', async function(req, res) {
 		res.render("add", {users:JSON.parse(users), clickable:true});
 	});
 });
+
 app.post('/add', async function(req, res) {
 	let data = '';
 	let filePath = 'db.json';
@@ -78,7 +80,6 @@ app.post('/add', async function(req, res) {
 	});
 	res.end();
 });
-
 
 app.post('/update', async function(req, res) {
 	let data = '';
@@ -122,6 +123,7 @@ app.post('/update', async function(req, res) {
 	});
 	res.end();
 });
+
 app.delete('/delete/:id', async function(req, res) {
 	let data = '';
 	let filePath = 'db.json';
